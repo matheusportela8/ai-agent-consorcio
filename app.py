@@ -1,7 +1,14 @@
 import streamlit as st
 import time
+import unicodedata
 # Importa a função do seu arquivo chatbot.py
 from chatbot import responder
+
+def limpar_texto(texto):
+
+    texto = unicodedata.normalize("NFKC", texto)
+
+    return texto
 
 # 1. Configuração da página
 LOGO_URL = "https://assets.abstra.cloud/connectors/logos/santander.png"
@@ -102,6 +109,8 @@ if user_input := st.chat_input("Digite sua dúvida sobre consórcio aqui..."):
         with st.spinner("Analisando sua dúvida..."):
             # CHAMADA REAL DA SUA IA DO CHATBOT.PY
             response = responder(user_input)
+
+            response = limpar_texto(response)
             
         # Efeito visual de digitação fluida para a resposta retornada pela IA
         # Efeito visual de digitação preservando markdown

@@ -104,11 +104,19 @@ if user_input := st.chat_input("Digite sua dúvida sobre consórcio aqui..."):
             response = responder(user_input)
             
         # Efeito visual de digitação fluida para a resposta retornada pela IA
+        # Efeito visual de digitação preservando markdown
         full_response = ""
-        for chunk in response.split():
-            full_response += chunk + " "
-            time.sleep(0.04)
-            message_placeholder.markdown(full_response + "▌")
+
+        for char in response:
+
+            full_response += char
+
+            time.sleep(0.002)
+
+            message_placeholder.markdown(
+                full_response + "▌"
+            )
+
         message_placeholder.markdown(full_response)
         
     # Salva a resposta gerada pela IA no histórico da sessão

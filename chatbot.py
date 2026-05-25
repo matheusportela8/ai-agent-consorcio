@@ -60,6 +60,12 @@ Base de conhecimento:
 
 Pergunta do usuário:
 {pergunta_usuario}
+
+INSTRUÇÕES DE FORMATAÇÃO (CRÍTICO):
+1. Use quebras de linha e espaçamento entre os parágrafos para a leitura não ficar cansativa.
+2. Use tópicos (bullet points) com emojis discretos e adequados para listar passos ou vantagens.
+3. Use **negrito** nas palavras-chave mais importantes (como "sem juros", "sorteio", "lance", "carta de crédito").
+4. Deixe a resposta visualmente limpa, organizada e elegante.
 """
 
     response = client.models.generate_content(
